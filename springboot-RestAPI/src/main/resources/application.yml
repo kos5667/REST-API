@@ -1,0 +1,44 @@
+spring:
+  #profiles 선언하여 적용할 profile을 선택 한다.
+  profiles: 
+    active: dev 
+    
+#  #DB 설정
+#  datasource:
+#    url: jdbc:log4jdbc:postgresql://192.168.0.200:5432/jhit_db
+#    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+#    username: jhit_app
+#    password: jhit1128!
+
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+#    static-path-pattern: /resources/**
+
+  #JSP 바로적용 설정
+  devtools:
+    livereload:
+      enabled: true
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 200MB
+      max-request-size: 215MB
+      
+#내장 서버 포트
+server:
+  port: 5001
+
+--- #local 환경 
+spring: 
+  profiles: dev
+  
+logging: 
+  level: 
+    root: error
+    '[com.springboot]': debug
+    
+file.upload-path : S:\workspace\springboot-RestAPI\src\main\webapp\resources\img\fileUpload
+file.download-path : S:\workspace\springboot-RestAPI\src\main\webapp\resources\img\fileDownload
